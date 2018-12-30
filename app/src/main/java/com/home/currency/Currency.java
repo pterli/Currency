@@ -22,23 +22,23 @@ public class Currency extends AppCompatActivity {
         edNtd = findViewById(R.id.ed_ntd);
     }
 
-    public void Calculation(View view){
+    public void calculate(View view){
         String N = edNtd.getText().toString();
         if(N.equals("")){
             new AlertDialog.Builder(this)
-                    .setTitle("Problem")
-                    .setMessage("Please enter your NTD amount !!")
-                    .setPositiveButton("OK", null)
+                    .setTitle(R.string.problem)
+                    .setMessage(R.string.please_enter_ntd)
+                    .setPositiveButton(R.string.ok, null)
                     .show();
         }
 
         else{
             float ntd = Float.parseFloat(N);
-            float Calculation = ntd / 30.9f;
+            float calculate = ntd / 30.9f;
             new AlertDialog.Builder(this)
-                    .setTitle("Result")
-                    .setMessage("USD is " + Calculation)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    .setTitle(R.string.result)
+                    .setMessage(getString(R.string.usd_is) + calculate)
+                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             edNtd.setText("");
